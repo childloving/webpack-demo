@@ -32,7 +32,7 @@ webpack 中有几个不同的选项，可以帮助你在代码发生变化后自
 我们添加一个用于启动 webpack 的观察模式的 npm script 脚本：
 
 package.json
-<pre>
+```
   {
     "name": "development",
     "version": "1.0.0",
@@ -40,7 +40,7 @@ package.json
     "main": "webpack.config.js",
     "scripts": {
       "test": "echo \"Error: no test specified\" && exit 1",
-<span style="color:#9df29d;">+     "watch": "webpack --watch",</span>
++     "watch": "webpack --watch",
       "build": "webpack"
     },
     "keywords": [],
@@ -57,18 +57,18 @@ package.json
       "xml-loader": "^1.2.1"
     }
   }
-</pre>
+```
 现在，你可以在命令行中运行 `npm run watch`，就会看到 webpack 编译代码，然而却不会退出命令行。这是因为 script 脚本还在观察文件。
 
 现在，webpack 观察文件的同时，我们先移除我们之前引入的错误：
 
 src/print.js
-<pre>
+```
   export default function printMe() {
-<span style="color:#f79494;">-   cosnole.log('I get called from print.js!');</span>
-<span style="color:#9df29d;">+   console.log('I get called from print.js!');</span>
+-   cosnole.log('I get called from print.js!');
++   console.log('I get called from print.js!');
   }
-</pre>
+```
 现在,保存文件并检查终端窗口。应该可以看到 webpack 自动重新编译修改后的模块！
 
-唯一的缺点是，为了看到修改后的实际效果，你需要刷新浏览器。如果能够自动刷新浏览器就更好了，可以尝试使用 `webpack-dev-server`，恰好可以实现我们想要的功能。
+唯一的缺点是，为了看到修改后的实际效果，你需要刷新浏览器。如果能够自动刷新浏览器就更好了，可以尝试使用`webpack-dev-server`，恰好可以实现我们想要的功能。
