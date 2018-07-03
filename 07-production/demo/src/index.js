@@ -1,4 +1,8 @@
 import { cube } from './math.js';
+console.log(process.env.NODE_ENV);
+if(process.env.NODE_ENV !== 'production'){
+    console.log('Looks like we are in development model!')
+}
 
 function component() {
     var element = document.createElement('pre');
